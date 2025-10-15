@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, defineProps } from 'vue'
 import { useForm, usePage } from '@inertiajs/vue3'
 import '../../css/login.css'
 import { use } from 'react'
@@ -38,8 +38,8 @@ const form = useForm({
   password: ''
 })
 
-const errors = usePage().props
-console.log('Errores de la página:', errors)
+const props = defineProps({ errors: Object })
+console.log('Errores de la página:', props.errors)
 
 const submit = () => {
   form.post('/login', {
