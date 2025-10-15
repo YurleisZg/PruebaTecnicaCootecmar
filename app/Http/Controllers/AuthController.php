@@ -42,31 +42,36 @@ class AuthController extends Controller
     // Procesar el login
     public function login(Request $request)
     {
+
+        error_log('Intento de login con datos: ' . json_encode($request->all()));
         $request->validate([
             'name' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $user = User::where('user', $request->name)->first();
+        $user = User::where('name', $request->name)->first();
 
         if (!$user) {
-            return back()->withErrors(['name' => 'Usuario no encontrado'])->onlyInput('name');
+            error_log('Usuario no encontrado: ' . $request->name);
+            return back()->withErrors(['credentials' => 'Usuario no encontrado']);
         }
 
-        if ($user->password !== $request->password) {
-            return back()->withErrors(['password' => 'Contraseña incorrecta'])->onlyInput('name');
+        if (!Hash::check($request->password, $user->password)) {
+            error_log('Contraseña incorrecta para el usuario: ' . $request->name);
+            return back()->withErrors(['credentials' => 'Contraseña incorrecta']);
         }
         
         // Autenticación exitosa
         session(['usuario' => $user]);
+        error_log("Usuario autenticado: " . $user->name);
 
-        return redirect()->route('form');
+        return redirect()->route('form')->with('success', 'Has iniciado sesión correctamente');
     }
 
     // Cerrar sesión
     public function logout()
     {
         session()->forget('usuario');
-        return redirect()->route('login');
+        return redirect()->route('loginForm');
     }
 }

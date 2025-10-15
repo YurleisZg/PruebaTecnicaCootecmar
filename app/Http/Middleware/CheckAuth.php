@@ -16,9 +16,12 @@ class CheckAuth
     public function handle(Request $request, Closure $next): Response
     {
 
+
         if(!session()->has('usuario')){
-            return redirect()->route('login')->with('error', 'Debes iniciar sesión para acceder a esta página');
+            return redirect()->route('loginForm')->with('error', 'Debes iniciar sesión para acceder a esta página');
         }
+
+        error_log("hola desde el middleware");
         return $next($request);
     }
 }

@@ -10,7 +10,6 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Crea usuarios manualmente, ya que eliminaste el email
         User::create([
             'name' => 'Admin',
             'password' => Hash::make('123456'),

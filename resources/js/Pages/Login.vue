@@ -3,7 +3,7 @@
     <div class="login-container">
       <h2>Iniciar sesión</h2>
 
-      <form @submit.prevent="form.post('/login')">
+      <form @submit.prevent="submit">
         <div class="input-group">
           <label for="usuario">Usuario</label>
           <input id="usuario" v-model="form.name" type="text" placeholder="Ingresa tu usuario" required />
@@ -19,21 +19,38 @@
         <button type="submit">Entrar</button>
       </form>
 
-        <div v-if="$page?.props?.flash?.error" class="error">
-        {{ $page.props.flash.error }}
-        </div>
-
+     <div v-if="form.errors" class="text-red-500 text-sm mt-3">
+        {{ form.errors }}
+      </div>
+        
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { useForm } from '@inertiajs/vue3'
+import { useForm, usePage } from '@inertiajs/vue3'
 import '../../css/login.css'
+import { use } from 'react'
 
 const form = useForm({
   name: '',
   password: ''
 })
+
+const errors = usePage().props
+console.log('Errores de la página:', errors)
+
+const submit = () => {
+  form.post('/login', {
+    onSuccess: () => {
+      console.log('Inicio de sesión exitoso')
+    },
+    onError: (errors) => {
+      console.log('Errores de validación:', errors)
+    }
+  })
+}
+
+console.log('Formulario inicializado:', form.errors)
 </script>
