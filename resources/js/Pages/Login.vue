@@ -19,9 +19,10 @@
         <button type="submit">Entrar</button>
       </form>
 
-      <div v-if="$page.props.flash.error" class="error">
+        <div v-if="$page?.props?.flash?.error" class="error">
         {{ $page.props.flash.error }}
-      </div>
+        </div>
+
     </div>
   </div>
 </template>
