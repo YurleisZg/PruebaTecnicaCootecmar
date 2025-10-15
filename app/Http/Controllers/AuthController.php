@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -22,7 +22,7 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
-        $user = Usuario::where('nombre_usuario', $request->nombre_usuario)->first();
+        $user = User::where('user', $request->nombre_usuario)->first();
 
         if (!$user) {
             return back()->withErrors(['nombre_usuario' => 'Usuario no encontrado'])->onlyInput('nombre_usuario');
