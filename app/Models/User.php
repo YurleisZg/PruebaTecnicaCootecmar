@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function piezasRegistradas()
+    {
+    return $this->hasMany(Pieza::class, 'registrado_por');
+    }
+
 }
