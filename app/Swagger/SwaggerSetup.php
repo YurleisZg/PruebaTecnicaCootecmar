@@ -15,8 +15,8 @@ namespace App\Swagger;
  * )
  * 
  * @OA\Tag(
- *     name="Autenticación",
- *     description="Endpoints para login y registro de usuarios"
+ *     name="Auth",
+ *     description="Autenticación de usuarios"
  * )
  * 
  * @OA\Tag(
