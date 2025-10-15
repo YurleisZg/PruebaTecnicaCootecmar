@@ -8,11 +8,36 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // Mostrar formulario de login
     public function loginForm()
     {
         return Inertia::render('Login');
     }
+
+
+    /**
+     * @OA\Post(
+     *     path="/login",
+     *     summary="Iniciar sesión",
+     *     description="Verifica las credenciales del usuario y devuelve un token o sesión activa.",
+     *     tags={"Auth"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name", "password"},
+     *             @OA\Property(property="name", type="string", example="admin"),
+     *             @OA\Property(property="password", type="string", example="123456")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Inicio de sesión exitoso"
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Credenciales incorrectas"
+     *     )
+     * )
+     */
 
     // Procesar el login
     public function login(Request $request)
