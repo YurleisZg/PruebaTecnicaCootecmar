@@ -11,5 +11,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Rutas protegidas
 Route::middleware(['checkauth'])->group(function () {
-    Route::get('/form', [FormularioController::class, 'index'])->name('formulario');
+    Route::get('/form', [FormController::class, 'index'])->name('formulario');
 });
