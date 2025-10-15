@@ -8,7 +8,7 @@ class FormController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Formulario', [
+        return Inertia::render('Form', [
             'usuario' => session('usuario')
         ]);
     }

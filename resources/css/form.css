@@ -1,0 +1,89 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 2rem;
+}
+
+/* Contenedor */
+.form-container {
+    background: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+.form-container h2 {
+    text-align: center;
+    color: #004e92;
+    margin-bottom: 2rem;
+}
+
+/* Estructura del formulario */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #333;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #004e92;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 78, 146, 0.3);
+}
+
+/* Botón principal */
+button {
+    grid-column: span 2;
+    background-color: #004e92;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #0074d9;
+}
+
+/* Mensajes */
+.error {
+    color: #e63946;
+    grid-column: span 2;
+    text-align: center;
+}
+
+.success {
+    color: #2a9d8f;
+    grid-column: span 2;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+}

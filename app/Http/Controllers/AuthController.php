@@ -43,24 +43,24 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'nombre_usuario' => 'required|string',
+            'name' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        $user = User::where('user', $request->nombre_usuario)->first();
+        $user = User::where('user', $request->name)->first();
 
         if (!$user) {
-            return back()->withErrors(['nombre_usuario' => 'Usuario no encontrado'])->onlyInput('nombre_usuario');
+            return back()->withErrors(['name' => 'Usuario no encontrado'])->onlyInput('name');
         }
 
         if ($user->password !== $request->password) {
-            return back()->withErrors(['password' => 'Contraseña incorrecta'])->onlyInput('nombre_usuario');
+            return back()->withErrors(['password' => 'Contraseña incorrecta'])->onlyInput('name');
         }
         
         // Autenticación exitosa
         session(['usuario' => $user]);
 
-        return redirect()->route('formulario');
+        return redirect()->route('form');
     }
 
     // Cerrar sesión

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 // Login
@@ -11,5 +11,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Rutas protegidas
 Route::middleware(['checkauth'])->group(function () {
-    Route::get('/form', [FormController::class, 'index'])->name('formulario');
+    Route::get('/form', [FormController::class, 'index'])->name('Form');
 });
