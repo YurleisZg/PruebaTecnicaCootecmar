@@ -12,9 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bloques', function (Blueprint $table) {
-            $table->id();
+            $table->string('IDBLOQUE')->primary(); // PK string
             $table->string('nombre');
-            $table->foreignId('proyecto_id')->constrained()->cascadeOnDelete();
+            
+            $table->string('proyecto_id'); // FK string
+            $table->foreign('proyecto_id')
+                  ->references('IDPROYECTO')
+                  ->on('proyectos')
+                  ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

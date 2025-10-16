@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
+use Auth;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use PharIo\Manifest\AuthorCollection;
 
-class AuthController extends Controller
+class AuthController extends Auth
 {
     public function loginForm()
     {
