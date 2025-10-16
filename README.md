@@ -1,5 +1,5 @@
 
-# Proyecto Laravel - Gestión de Usuarios
+# Proyecto Laravel - Vue3
 
 Este proyecto es una aplicación web desarrollada en **Laravel 12**, usando **Inertia.js** y **SQLite** como base de datos. Permite gestionar usuarios con autenticación, registro y operaciones CRUD.
 
@@ -26,7 +26,7 @@ cd PruebaTecnicaCootecmar
 
 ---
 
-2️⃣ Instalar dependencias
+## 2️⃣ Instalar dependencias
 
 PHP
 
@@ -41,17 +41,13 @@ yarn
 
 ---
 
-3️⃣ Configurar entorno
+## 3️⃣ Configurar entorno
 
 1. Crear el archivo .env:
-
-
 
 cp .env.example .env
 
 2. Configurar SQLite en .env:
-
-
 
 DB_CONNECTION=sqlite
 DB_DATABASE=/ruta/a/tu/proyecto/database/database.sqlite
@@ -71,7 +67,7 @@ php artisan key:generate
 
 ---
 
-4️⃣ Migraciones y Seeders
+## 4️⃣ Migraciones y Seeders
 
 Ejecutar migraciones y cargar datos de prueba:
 
@@ -84,7 +80,7 @@ php artisan migrate --seed
 
 ---
 
-5️⃣ Ejecutar la aplicación
+## 5️⃣ Ejecutar la aplicación
 
 Iniciar el servidor de desarrollo:
 
@@ -97,7 +93,7 @@ php artisan serve
 
 ---
 
-6️⃣ Comandos útiles
+## 6️⃣ Comandos útiles
 
 Limpiar y reiniciar la base de datos:
 
@@ -124,7 +120,7 @@ php artisan test
 
 ---
 
-7️⃣ Notas importantes
+## 7️⃣ Notas importantes
 
 La autenticación usa Inertia.js, por lo que los formularios POST deben ser manejados con form.post('/login').
 
@@ -140,7 +136,7 @@ chmod 777 database/database.sqlite
 
 ---
 
-8️⃣ Estructura del proyecto
+## 8️⃣ Estructura del proyecto
 
 app/Models/User.php → Modelo de usuario
 
@@ -156,25 +152,3 @@ routes/web.php → Rutas web
 
 
 
----
-
-9️⃣ Funcionalidades principales
-
-1. Login de usuarios
-
-
-2. Registro de usuarios (name y password)
-
-
-3. CRUD de usuarios
-
-
-4. Inertia.js para SPA
-
-
-5. SQLite para desarrollo local
-
-
-
-
----
