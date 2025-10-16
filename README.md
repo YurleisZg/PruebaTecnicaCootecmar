@@ -22,10 +22,9 @@ Antes de empezar, asegúrate de tener instaladas las siguientes herramientas:
 git clone https://github.com/YurleisZg/PruebaTecnicaCootecmar.git
 cd PruebaTecnicaCootecmar
 
+---
 
-
-
-##2️⃣ Instalar dependencias
+## 2️⃣ Instalar dependencias
 
 PHP
 
