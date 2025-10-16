@@ -15,7 +15,6 @@ Antes de empezar, asegúrate de tener instaladas las siguientes herramientas:
 - NPM o Yarn  
 - SQLite (incluido en PHP, normalmente)
 
----
 
 ## 1️⃣ Clonar el proyecto
 
@@ -24,9 +23,9 @@ git clone https://github.com/YurleisZg/PruebaTecnicaCootecmar.git
 cd PruebaTecnicaCootecmar
 
 
----
 
-## 2️⃣ Instalar dependencias
+
+##2️⃣ Instalar dependencias
 
 PHP
 
